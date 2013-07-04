@@ -1,0 +1,21 @@
+{
+    "name": "gridsby/virtuoso-tools",
+    "description": "Toolset for easy-accessing Virtuoso's hidden gems",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alexey Zakhlestin",
+            "email": "indeyets@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "ext-pdo_odbc": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~3.7"
+    },
+    "autoload": {
+        "psr-0": { "GridsBy\\Virtuoso": "src/" }
+    }
+}
