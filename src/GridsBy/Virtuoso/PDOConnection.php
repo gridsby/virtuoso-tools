@@ -2,7 +2,7 @@
 namespace GridsBy\Virtuoso;
 
 
-class Connection
+class PDOConnection implements ConnectionInterface
 {
     private $pdo;
 

@@ -17,7 +17,7 @@ class BulkLoader
 
     private $connection;
 
-    public function __construct(Connection $connection)
+    public function __construct(ConnectionInterface $connection)
     {
         $this->connection = $connection;
     }

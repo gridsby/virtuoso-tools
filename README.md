@@ -1,0 +1,1 @@
+This is a package of PHP 5.4+ Classes which allow to reach various internal bits of OpenLink Virtuoso server.
