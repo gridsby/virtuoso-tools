@@ -203,4 +203,13 @@ class Administration
 
         return implode("\n", $rows);
     }
+
+    /**
+     * Kills all active transactions
+     * @param int $status transactions will return this code to their callers
+     */
+    public function killAll($status = self::ERR_ROLLBACK_AFTER_SQL_ERROR)
+    {
+        $this->connection->exec("txn_killall({$status})");
+    }
 }
