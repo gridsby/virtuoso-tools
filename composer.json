@@ -1,6 +1,6 @@
 {
     "name": "gridsby/virtuoso-tools",
-    "description": "Toolset for easy-accessing Virtuoso's hidden gems",
+    "description": "Toolset which eases access to Virtuoso's hidden gems",
     "license": "MIT",
     "authors": [
         {
@@ -8,14 +8,16 @@
             "email": "indeyets@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "require": {
-        "ext-pdo_odbc": "*"
+        "ext-pdo_odbc": "*",
+        "symfony/console": "~2.3"
     },
     "require-dev": {
         "phpunit/phpunit": "~3.7"
     },
     "autoload": {
         "psr-0": { "GridsBy\\Virtuoso": "src/" }
-    }
+    },
+    "bin": ["composer/bin/virtuoso-import"]
 }

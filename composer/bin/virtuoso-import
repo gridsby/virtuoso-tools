@@ -1,0 +1,9 @@
+#!/usr/bin/env php
+<?php
+require realpath(__DIR__.'/../..').'/vendor/autoload.php';
+
+$app = new \Symfony\Component\Console\Application('virtuoso-import');
+$app->add(new \GridsBy\Virtuoso\Command\AddCommand());
+$app->add(new \GridsBy\Virtuoso\Command\CleanCommand());
+$app->add(new \GridsBy\Virtuoso\Command\ShowCommand());
+$app->run();

@@ -65,10 +65,13 @@ class BulkLoader
             $obj->finished_at = new \DateTime($record['ll_done']);
         }
 
-        if ($record['ll_error']) {
-            $obj->error = $record['ll_error'];
-        } else {
-            $obj->error = false;
+        if ($obj->status === 'finished') {
+            if ($record['ll_error']) {
+                $obj->error = $record['ll_error'];
+                $obj->status = 'failed';
+            } else {
+                $obj->error = false;
+            }
         }
 
         return $obj;
