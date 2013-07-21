@@ -27,13 +27,17 @@ class CleanCommand extends Command
 
         $before_tasks = count($bulk->listTasks());
 
-        /** @var DialogHelper $dialog */
-        $dialog = $this->getApplication()->getHelperSet()->get('dialog');
+        if ($input->isInteractive()) {
+            /** @var DialogHelper $dialog */
+            $dialog = $this->getApplication()->getHelperSet()->get('dialog');
+            $should_do = $dialog->askConfirmation($output, 'Are you sure that you want to clean the import queue?', false);
+        } else {
+            $should_do = true;
+        }
 
-        if ($dialog->askConfirmation($output, 'Are you sure that you want to clean the import queue?', false)) {
+        if ($should_do) {
             $bulk->cleanTasks();
             $output->writeln("Removed {$before_tasks} tasks");
         }
-
     }
 }
