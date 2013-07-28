@@ -2,6 +2,7 @@
     "name": "gridsby/virtuoso-tools",
     "description": "Toolset which eases access to Virtuoso's hidden gems",
     "license": "MIT",
+    "keywords": ["virtuoso", "rdf", "triplestore"],
     "authors": [
         {
             "name": "Alexey Zakhlestin",
