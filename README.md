@@ -23,7 +23,9 @@ run the `php composer.phar install` command to install it:
 
 ## Usage
 
-Documentation is coming soon
+Type `./vendor/bin/virtuoso-import list` to get list of supported commands.
+
+Documentation on **usage of tools** and **programmatic usage of library** is coming soon.
 
 ## License
 
