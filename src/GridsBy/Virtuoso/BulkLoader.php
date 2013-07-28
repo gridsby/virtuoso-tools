@@ -109,8 +109,8 @@ class BulkLoader
     }
 
     /**
-     * Starts a import-thread. It will "hang" until all files are imported
-     * @param null|integer $max_files  maximum number of files which should be processed in this thread
+     * Starts a import-thread. It will block until all files are imported
+     * @param null|integer $max_files  maximum number of files (or batches-of-files with size<=2Mb) which should be processed in this thread
      * @param null|integer $log_enable bitmask of BulkLoader::LOG_* constants
      */
     public function runTasks($max_files = null, $log_enable = null)
