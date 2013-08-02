@@ -1,0 +1,8 @@
+#!/usr/bin/env php
+<?php
+require realpath(__DIR__.'/../..').'/vendor/autoload.php';
+
+$app = new \Symfony\Component\Console\Application('virtuoso-admin');
+$app->add(new \GridsBy\Virtuoso\Command\Admin\StatusCommand());
+$app->add(new \GridsBy\Virtuoso\Command\Admin\VacuumCommand());
+$app->run();
