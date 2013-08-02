@@ -7,6 +7,8 @@ namespace GridsBy\Virtuoso;
  */
 class Administration
 {
+    const ERR_ROLLBACK_AFTER_SQL_ERROR = 6;
+
     private $connection;
 
     public function __construct(ConnectionInterface $connection)
