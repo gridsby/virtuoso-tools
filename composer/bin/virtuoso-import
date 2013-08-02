@@ -3,8 +3,8 @@
 require realpath(__DIR__.'/../..').'/vendor/autoload.php';
 
 $app = new \Symfony\Component\Console\Application('virtuoso-import');
-$app->add(new \GridsBy\Virtuoso\Command\AddCommand());
-$app->add(new \GridsBy\Virtuoso\Command\CleanCommand());
-$app->add(new \GridsBy\Virtuoso\Command\RunImportCommand());
-$app->add(new \GridsBy\Virtuoso\Command\ShowCommand());
+$app->add(new \GridsBy\Virtuoso\Command\Import\AddCommand());
+$app->add(new \GridsBy\Virtuoso\Command\Import\CleanCommand());
+$app->add(new \GridsBy\Virtuoso\Command\Import\RunImportCommand());
+$app->add(new \GridsBy\Virtuoso\Command\Import\ShowCommand());
 $app->run();

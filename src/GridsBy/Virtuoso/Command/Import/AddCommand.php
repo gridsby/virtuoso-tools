@@ -1,5 +1,5 @@
 <?php
-namespace GridsBy\Virtuoso\Command;
+namespace GridsBy\Virtuoso\Command\Import;
 
 
 use GridsBy\Virtuoso\BulkLoader;
