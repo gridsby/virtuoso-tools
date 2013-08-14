@@ -172,6 +172,18 @@ class Administration
     }
 
     /**
+     * Returns list of USER-names known to virtuoso
+     * @return array
+     */
+    public function userNames()
+    {
+        $query = 'SELECT "U_NAME" FROM "SYS_USERS" WHERE "U_IS_ROLE"=0';
+        $rows = $this->connection->fetchColumn($query);
+
+        return $rows;
+    }
+
+    /**
      * Create new user
      * @param string $login
      * @param string $password
@@ -190,6 +202,18 @@ class Administration
     {
         $cascade = $cascade ? '1' : '0';
         $this->connection->exec("USER_DROP('{$login}', {$cascade})");
+    }
+
+    /**
+     * Returns list of ROLE-names known to virtuoso
+     * @return array
+     */
+    public function roleNames()
+    {
+        $query = 'SELECT "U_NAME" FROM "SYS_USERS" WHERE "U_IS_ROLE"=1';
+        $rows = $this->connection->fetchColumn($query);
+
+        return $rows;
     }
 
     /**
