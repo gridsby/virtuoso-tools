@@ -6,9 +6,11 @@ class PDOConnection implements ConnectionInterface
 {
     private $pdo;
 
-    public function __construct($odbc_name = 'Local Virtuoso u', $login = 'dba', $password = 'dba')
+    public function __construct($host='localhost', $port=1111, $login='dba', $password='dba')
     {
-        $this->pdo = new \PDO('odbc:Local Virtuoso u', 'dba', 'dba'/*, array(\PDO::ODBC_ATTR_ASSUME_UTF8 => true)*/);
+        $driver = 'OpenLink Virtuoso ODBC Driver (Unicode)';
+
+        $this->pdo = new \PDO("odbc:DRIVER={$driver};HOSTNAME={$host};PORT={$port}", $login, $password, [\PDO::ODBC_ATTR_ASSUME_UTF8 => true]);
         $this->pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
     }
 
