@@ -1,7 +1,16 @@
 #!/usr/bin/env php
 <?php
-require realpath(__DIR__.'/../..').'/vendor/autoload.php';
+$files = array(
+    __DIR__ . '/../../vendor/autoload.php',
+    __DIR__ . '/../../../../autoload.php'
+);
 
+foreach ($files as $file) {
+    if (file_exists($file)) {
+        require $file;
+        break;
+    }
+}
 $app = new \Symfony\Component\Console\Application('virtuoso-admin');
 $app->add(new \GridsBy\Virtuoso\Command\Admin\StatusCommand());
 $app->add(new \GridsBy\Virtuoso\Command\Admin\VacuumCommand());
