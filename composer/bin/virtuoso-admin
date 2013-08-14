@@ -14,6 +14,7 @@ foreach ($files as $file) {
 $app = new \Symfony\Component\Console\Application('virtuoso-admin');
 $app->add(new \GridsBy\Virtuoso\Command\Admin\GrantRoleCommand());
 $app->add(new \GridsBy\Virtuoso\Command\Admin\KillCommand());
+$app->add(new \GridsBy\Virtuoso\Command\Admin\RevokeRoleCommand());
 $app->add(new \GridsBy\Virtuoso\Command\Admin\RolesCommand());
 $app->add(new \GridsBy\Virtuoso\Command\Admin\StatusCommand());
 $app->add(new \GridsBy\Virtuoso\Command\Admin\UsersCommand());
