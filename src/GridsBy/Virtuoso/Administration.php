@@ -239,6 +239,19 @@ class Administration
     }
 
     /**
+     * Returns list of ROLE-names granted to USER
+     * @param string $login
+     * @return array mixed
+     */
+    public function grantedRoles($login)
+    {
+        $query = 'SELECT DISTINCT "R"."U_NAME" FROM "SYS_USERS" AS "U", "SYS_USERS" AS "R", "SYS_ROLE_GRANTS" AS "G" WHERE "U"."U_IS_ROLE"=0 AND "R"."U_IS_ROLE"=1 AND "U"."U_NAME"=\''.$login.'\' AND "G"."GI_SUPER"="U"."U_ID" AND "G"."GI_GRANT"="R"."U_ID"';
+        $rows = $this->connection->fetchColumn($query);
+
+        return $rows;
+    }
+
+    /**
      * Returns statistics for a running server
      * see http://docs.openlinksw.com/virtuoso/fn_status.html
      * @param null|string $option null, 'c', 'k', 'r' or 'h'
