@@ -193,6 +193,28 @@ class Administration
     }
 
     /**
+     * Grant a ROLE to a USER, optionally allowing USER to grant same ROLE to other users
+     * @param string $login
+     * @param string $role_name
+     * @param bool   $can_give
+     */
+    public function grantRole($login, $role_name, $can_give = false)
+    {
+        $can_give = $can_give ? '1' : '0';
+        $this->connection->exec("USER_GRANT_ROLE('{$login}', '{$role_name}', {$can_give})");
+    }
+
+    /**
+     * Revoke a ROLE from a USER
+     * @param string $login
+     * @param string $role_name
+     */
+    public function revokeRole($login, $role_name)
+    {
+        $this->connection->exec("USER_REVOKE_ROLE('{$login}', '{$role_name}')");
+    }
+
+    /**
      * Returns statistics for a running server
      * see http://docs.openlinksw.com/virtuoso/fn_status.html
      * @param null|string $option null, 'c', 'k', 'r' or 'h'
