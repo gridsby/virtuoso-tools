@@ -20,5 +20,5 @@
     "autoload": {
         "psr-0": { "GridsBy\\Virtuoso": "src/" }
     },
-    "bin": ["composer/bin/virtuoso-import"]
+    "bin": ["composer/bin/virtuoso-import", "composer/bin/virtuoso-admin"]
 }
